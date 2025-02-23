@@ -71,7 +71,9 @@ function Menus({ children }) {
   const [openId, setOpenId] = useState("");
   const [position, setPosition] = useState(null);
 
-  const close = () => setOpenId("");
+  const close = () => {
+    setOpenId("");
+  };
   const open = setOpenId;
 
   return (
@@ -93,7 +95,7 @@ function Toggle({ id }) {
       y: rect.y + rect.height + 8,
     });
 
-    openId === "" || openId !== id ? open(id) : close();
+    openId === id ? close() : open(id);
   }
 
   return (
